@@ -57,7 +57,7 @@ To get started with developing the AI chatbot, follow these steps:
 3. Navigate to the project directory in your terminal.
 4. Build the Docker image with the following command:
     ```
-    docker build -t chatbot .
+    docker build -t chatbot ./api
     ```
 5. Start the Docker container with the following command:
     ```
@@ -81,4 +81,10 @@ postgresql://<username>:<password>@<hostname>:<port>/<database-name>
 
 Replace `<username>`, `<password>`, `<hostname>`, `<port>`, and `<database-name>` with your own values.
 
+### AirPlay Receiver
 
+Turn this off if you haven't already. It interferes with port 5000.
+
+You can toggle that off by unchecking 'Airplay Receiver' in System Preferences > Sharing at the bottom of the list.
+
+Otherwise you can change the app to run on a different port.
