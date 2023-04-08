@@ -8,13 +8,13 @@ services:
     environment:
       - FLASK_ENV=development
       - FLASK_APP=app.py
-      - DATABASE_URL=postgres://postgres:password@db/gpt3_turbo
+      - DATABASE_URL=postgres://postgres:password@db/gpt3_turbo #tb updated
     depends_on:
-      - db
-  db:
-    image: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: gpt3_turbo
-
+      - cql-proxy # tb updated
+  cql-proxy:
+    image: datastax/cql-proxy:v0.1.4
+    container_name: cql-proxy
+    command: --astra-token <token> --astra-database-id <dbid> 
+    ports:
+      - "9042:9042"
+    restart: on-failure
